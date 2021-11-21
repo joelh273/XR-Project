@@ -1,0 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class HorizontalMovement : MonoBehaviour
+{
+    [SerializeField] Vector3 moveDirection;
+
+    private void Update()
+    {
+        if (MainCube.interactable)
+        {
+            if (OVRInput.GetDown(OVRInput.RawButton.RThumbstickLeft))
+            {
+                GetComponent<Rigidbody>().velocity -= moveDirection;
+            }
+            if (OVRInput.GetDown(OVRInput.RawButton.RThumbstickRight))
+            {
+                GetComponent<Rigidbody>().velocity += moveDirection;
+            }
+        }
+    }
+}
